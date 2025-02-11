@@ -1,7 +1,7 @@
 # feelgood-gmbh-saas
 
 #Non functional code mostly sourced from official documentation of all technology used in implementation, generative AI and other resources available online.
-#This file aims to explain deployment of nginx, tomcat, artemis using kubernetes and automating the deployment using argocd.
+#This file aims to explain deployment of nginx, tomcat, artemis using kubernetes, how upgrades are handled, authetications are done and automating the deployment using argocd.
 
 Repository Overview
 
@@ -124,11 +124,15 @@ Schema Generator
 Schema updates are handled by the schemagen container, which is automatically triggered when Tomcat is updated. This ensures that the database schema is up-to-date for each tenant before restarting the application.
 
 Notes
-Scaling: The solution does not focus on scaling replicas or ensuring high availability in this phase.
-External Database: The database is managed externally, and configurations are handled automatically via the central YAML file.
+This setup assumes that the database is managed externally.
 
-Contributing
-Its a sample code please don't submit any Pull Request.
+Replicas, high availability, and other advanced features are not covered in this context.
 
 License
-NA
+This project is licensed under the MIT License. See the LICENSE.md file for details.
+
+Contribution
+Please don't open any Pull Request as it's a dummy/non-functional code.
+
+Contact
+For any inquiries or support, please contact us at support@feelgoodgmbh.com(dummy email).
