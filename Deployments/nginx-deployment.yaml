@@ -29,7 +29,7 @@ spec:
       volumes:
       - name: nginx-config
         configMap:
-          name: nginx-config
+          name: nginx-maintainance-config
       - name: html
         configMap:
-          name: maintenance-html
+          name: maintenance-html-config

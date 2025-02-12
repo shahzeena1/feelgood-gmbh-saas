@@ -6,7 +6,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/your-github-account/feelgood-gmbh-saas'
+    repoURL: 'https://github.com/shahzeena1/feelgood-gmbh-saas'
     targetRevision: HEAD
     path: .
   destination:
