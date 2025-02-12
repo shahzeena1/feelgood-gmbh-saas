@@ -17,8 +17,6 @@ feelgood-gmbh-saas/
 │   ├── nginx-deployment.yaml
 │   ├── tomcat-deployment.yaml
 │   ├── artemis-deployment.yaml
-├── Jobs/
-│   ├── schemagen-job.yaml
 ├── Services/
 │   ├── nginx-service.yaml
 ├── Ingress/
@@ -46,34 +44,29 @@ Deployments define how the application components are deployed and updated in th
 
 nginx-deployment.yaml: Describes how to deploy the Nginx component in the Kubernetes cluster. It includes information on how many replicas of Nginx to run, which Docker image to use, and what ports to expose.
 
-tomcat-deployment.yaml: Defines the deployment for the Tomcat server, which runs the business logic of the application. This file specifies how Tomcat should be deployed, its resource requirements, and environment variables.
+tomcat-deployment.yaml: Defines the deployment for the Tomcat server, which runs the business logic of the application. This file specifies how Tomcat should be deployed, its resource requirements, and environment variables, it also contain configuration for initcontainer to run for completion schemagen container to perform schema update.
 
 artemis-deployment.yaml: Specifies the deployment of Artemis, the message queue that handles communication between the components (e.g., Nginx, Tomcat). It defines how many replicas to run and configuration for the Artemis container.
 
-# 4. Jobs/ Directory
-Jobs define tasks that run once and complete, such as database schema updates or migrations.
-
-schemagen-job.yml: This defines a job that runs a schema generator container for each tenant when Tomcat is updated. The job ensures that the correct database schema changes are applied before the Tomcat server is restarted.
-
-# 5. Services/ Directory
+# 4. Services/ Directory
 Services define how different components within the Kubernetes cluster can communicate with each other.
 
 nginx-service.yaml: Defines the service for Nginx, which will expose the Nginx container to other parts of the system. It allows other components (like Tomcat and Artemis) to reach Nginx and lets external traffic connect to it.
 
-# 6. Ingress/ Directory
+# 5. Ingress/ Directory
 Ingress defines how external traffic (like requests from users) should be routed to the appropriate services inside the cluster.
 
 ingress.yaml: This file configures Ingress to manage external HTTP traffic. It sets up rules to route incoming requests (e.g., based on domain name or path) to the correct service, like Nginx or Tomcat.
 
-# 7. Argocd/ Directory
+# 6. Argocd/ Directory
 ArgoCD is a continuous deployment tool for Kubernetes. It automatically syncs the application deployment with the version stored in a Git repository.
 
 argocd-application.yaml: This file tells ArgoCD about the application and where to find the deployment configurations. It links the Git repository to ArgoCD and automatically triggers deployments in Kubernetes whenever changes are made to the repository.
 
-# 8. .gitignore
+# 7. .gitignore
 This file tells Git which files or folders to ignore. It ensures that unnecessary files (like temporary files, build outputs, or sensitive data) are not tracked in the repository.
 
-# 9. README.md
+# 8. README.md
 This is the documentation file for the repository. It explains what the project is, how to set it up, and how to deploy it. It's meant to help developers understand how to use and contribute to the project.
 
 ### Architecture Diagram
