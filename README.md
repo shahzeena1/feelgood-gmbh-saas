@@ -1,6 +1,6 @@
 # FEELGOOD-GMBH-SAAS
 
-- Sample code sourced from official documents available online.
+- Sample code sourced from official documents, stackoverflow, Gen AI resources available online.
 
 - This file aims to explain deployment of nginx, tomcat, artemis using kubernetes in multitenancy setup, how upgrades are handled, authetications are done and automating the deployment using argocd.
 

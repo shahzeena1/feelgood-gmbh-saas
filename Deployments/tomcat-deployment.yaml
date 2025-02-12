@@ -16,7 +16,7 @@ spec:
       initContainers:
         - name: schemagen-init
           image: schemagen-image:latest  
-          command: ["/bin/sh", "-c", "echo 'Running schema migration for tenant...'; sleep 60"] 
+          command: ["/bin/sh", "-c", "echo 'Running schema migration for tenant1...'; sleep 60"] 
           env:
             - name: DB_URL
               valueFrom:
